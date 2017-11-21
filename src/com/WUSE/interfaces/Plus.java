@@ -6,13 +6,13 @@ package com.WUSE.interfaces;
  * @author Leo
  *
  * @param <F>
- * <F> Parameter specifies the class where all children that are not abstract are summable
+ * <F> Parameter specifies the class where all children are summable
  */
-public interface Plus <F> {
+public interface Plus <F> extends Operator {
 	
 	
 	/**
-	 * Implement plus so:
+	 * Implement plus that:
 	 * T is a child of F
 	 * After you add some other child of F to T you want a new T as return object
 	 * use 

@@ -75,5 +75,27 @@ public abstract class baseUnit <F extends baseUnit> implements Plus<F>  {
 	public String toString() {
 		return String.valueOf(value + " " + getClass().getSimpleName());
 	}
+	
+	
+	
+	@SuppressWarnings("unchecked")
+	public <T extends F> T getCopy() {
+		
+		try {
+			
+			
+			T result = (T) this.getClass().newInstance();//this copys the instance with the same base rate
+			result.setValue(this.getValue()); // this copys the value to the new instance
+			
+			
+			return result;
+			
+		} catch (InstantiationException | IllegalAccessException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		return null;
+	}
 
 }

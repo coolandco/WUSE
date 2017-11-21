@@ -1,5 +1,6 @@
 package helloWorld;
 
+import com.WUSE.meter.A_geschwindigkeit;
 import com.WUSE.meter.Centimeter;
 import com.WUSE.meter.meter;
 import com.WUSE.zeit.second;
@@ -29,7 +30,7 @@ public class HelloWorld {
 		System.out.println(c);
 		
 		System.out.println("Testausgabe " + c + " + " + m);
-		m = c.plus(m);
+		//m = c.plus(m);
 		System.out.println(c);
 		
 		
@@ -38,6 +39,22 @@ public class HelloWorld {
 		System.out.println("Testausgabe " + s + " + " + s2);
 		s = s.plus(s2);
 		System.out.println(s);
+		System.out.println();
+		System.out.println();
+		
+		A_geschwindigkeit g;
+		g = m.dividedBy(s);
+		
+		A_geschwindigkeit g2;
+		g2 = m2.dividedBy(s2);
+		
+		System.out.println("Testausgabe " + g2 + " + " + g);
+		g2 = g2.plus(g);
+		
+		
+		System.out.println(g2);
+		
+		
 
 	}
 	
