@@ -2,7 +2,7 @@ package com.WUSE.Units;
 
 
 @SuppressWarnings("rawtypes")
-public class Unit<F extends Unit>  { //implements Plus<F>
+public abstract class Unit<F extends Unit>  { //implements Plus<F>
 	
 	private baseUnit<?> a;
 	private baseUnit<?> b;
@@ -20,7 +20,7 @@ public class Unit<F extends Unit>  { //implements Plus<F>
 	 * For example: If we take 5 Meters and 3 Seconds the speed would be 5/3 m/s
 	 * 
 	 */
-	public Unit(baseUnit<?> a, baseUnit<?> b,UnitOperators o) {
+	protected Unit(baseUnit<?> a, baseUnit<?> b,UnitOperators o) {
 		this.a = a;
 		this.b = b;
 		this.o = o;
