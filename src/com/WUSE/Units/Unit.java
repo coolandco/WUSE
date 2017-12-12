@@ -13,6 +13,7 @@ public abstract class Unit<F extends Unit>  { //implements Plus<F>
 	/**
 	 *
 	 * How do we get a Proper Unit? We have to divide a by b and and b by b
+	 * Units are always in (X baseUnit / 1 baseUnit)
 	 * 
 	 * lengt = lenth / time
 	 * time = time / time
@@ -33,8 +34,18 @@ public abstract class Unit<F extends Unit>  { //implements Plus<F>
 		}
 	}
 
+	
+	/**
+	 * returns an Empty unit
+	 * @param o The desired Operator for the unit
+	 */
+	protected Unit(UnitOperators o) {
+		//return an empty Unit
+		this.o = o;
+	}
 
-	@SuppressWarnings("unchecked")
+
+	//@SuppressWarnings("unchecked")
 	public F plus(F toAdd) {
 		
 		
@@ -48,8 +59,36 @@ public abstract class Unit<F extends Unit>  { //implements Plus<F>
 			if(o == UnitOperators.DIVIDE) {
 				//do the addition
 				
-				//TODO: Bringe b auf gleiche einheiten nenner wie a
-				//TODO: addiere Zähler
+				//Explanation
+				//Example:
+				//this km/h + toAdd cm/s
+				//= (this.A.value,this.A.baseRate) / (this.B.value,this.B.baseRate) + (toAdd.A.value,toAdd.A.baseRate) / (toAdd.B.value,toAdd.B.baseRate)
+				//
+				//calculation:
+				//ar = this.A.baseRate
+				//av = this.A.value
+				//br = this.B.baseRate
+				//bv = this.B.value --> is "1"
+				//cr = toAdd.A.baseRate
+				//cv = toAdd.A.value
+				//dr = toAdd.B.baseRate
+				//dv = toAdd.B.value --> is "1"
+				//result = ( ( (dr / br) / (cr / ar) ) * cv ) + av
+				//TODO: can be simplified: result = ( (dr * ar * cv) / (br * cr) ) + av
+				
+				result.getA().setValue(
+						(
+							(
+								(toAdd.getB().getBaseRate() / this.getB().getBaseRate())
+								/
+								(toAdd.getA().getBaseRate() / this.getA().getBaseRate())
+							)
+							*
+							toAdd.getA().getValue()
+						)
+						+
+						this.getA().getValue()
+						);
 			}
 			
 			//now we have a finished Unit and can give it back
@@ -65,7 +104,7 @@ public abstract class Unit<F extends Unit>  { //implements Plus<F>
 	
 	@Override
 	public String toString() {
-		return String.valueOf(a.getValue() + 
+		return String.valueOf(a.getValue() + " " +
 				a.getClass().getSimpleName() +
 				"/" +
 				b.getClass().getSimpleName());
@@ -73,11 +112,11 @@ public abstract class Unit<F extends Unit>  { //implements Plus<F>
 
 	
 	
-	protected baseUnit<?> getA() {
+	protected <F extends Unit> baseUnit<?> getA() {
 		return a;
 	}
 
-	protected baseUnit<?> getB() {
+	protected <F extends Unit> baseUnit<?> getB() {
 		return b;
 	}
 

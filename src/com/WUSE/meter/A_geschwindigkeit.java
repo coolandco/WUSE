@@ -16,7 +16,7 @@ public class A_geschwindigkeit extends Unit<A_geschwindigkeit>{
 	
 	public A_geschwindigkeit() {
 		
-		super(null,null, UnitOperators.DIVIDE);
+		super(UnitOperators.DIVIDE);
 	}
 
 }

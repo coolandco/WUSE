@@ -41,12 +41,25 @@ public abstract class baseUnit <F extends baseUnit> implements Plus<F>  {
 				//generates a new class through reflection and casts it to the desired class
 				T result = (T) this.getClass().newInstance();
 				
-				//calculation, see method Doc
+				//calculation
+				//ar = this.baserate
+				//av = this.value
+				//br = toAdd.baserate
+				//bv = toAdd.value
+				//(ar / br) * bv + av
 				result.setValue(
-						((toAdd.getBaseRate() *  toAdd.getValue()) + 
-						(this.getBaseRate() * this.getValue())) / 
-						this.getBaseRate()
-						);	
+						(
+							(
+								this.getBaseRate()
+								/
+								toAdd.getBaseRate()
+							)
+							*
+							toAdd.getValue()
+						)
+						+
+						this.getValue()
+				);	
 				
 				return result;
 			} catch (InstantiationException | IllegalAccessException e) {
@@ -77,7 +90,11 @@ public abstract class baseUnit <F extends baseUnit> implements Plus<F>  {
 	}
 	
 	
-	
+	/**
+	 * Generates a copy of <T> with the same value and baseRate
+	 * 
+	 * @return <T> or null if there was an exeption
+	 */
 	@SuppressWarnings("unchecked")
 	public <T extends F> T getCopy() {
 		

@@ -14,10 +14,8 @@ abstract class A_meter extends baseUnit<A_meter>{
 	public A_geschwindigkeit dividedBy(A_zeit time) {
 		
 		//returns a new Speed
-		
-		
+
 		return new A_geschwindigkeit(this, time);
-	}
-	
+	}	
 
 }
