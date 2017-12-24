@@ -2,7 +2,7 @@ package com.WUSE.Units;
 
 
 
-import com.WUSE.interfaces.Plus;
+import com.WUSE.Interfaces.Plus;
 
 /**
  * This class does the work
@@ -22,13 +22,13 @@ import com.WUSE.interfaces.Plus;
  */
 
 @SuppressWarnings("rawtypes") 
-public abstract class baseUnit <F extends baseUnit> implements Plus<F>  {
+public abstract class BaseUnit <F extends BaseUnit> implements Plus<F>  {
 	
 	private float baseRate;
 	private float value;
 	
 	
-	protected baseUnit(float baseRate, float value) {
+	protected BaseUnit(float baseRate, float value) {
 				this.baseRate = baseRate;
 				this.value = value;
 	}

@@ -1,6 +1,6 @@
-package com.WUSE.meter;
+package com.WUSE.Distance;
 
-public class Centimeter extends A_meter {
+public class Centimeter extends A_distance {
 
 	public Centimeter(float value){
 		super(100f,value);	//calls super constructor to set the baseRate

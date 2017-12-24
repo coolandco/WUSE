@@ -1,6 +1,6 @@
-package com.WUSE.zeit;
+package com.WUSE.Time;
 
-public class Hour extends A_zeit {
+public class Hour extends A_Time {
 
 	
 	public Hour(float value){

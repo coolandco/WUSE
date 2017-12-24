@@ -1,4 +1,4 @@
-package com.WUSE.interfaces;
+package com.WUSE.Interfaces;
 
 /**
  *This interface has the right pattern for a Addition operation

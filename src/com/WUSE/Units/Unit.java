@@ -4,8 +4,8 @@ package com.WUSE.Units;
 @SuppressWarnings("rawtypes")
 public abstract class Unit<F extends Unit>  { //implements Plus<F>
 	
-	private baseUnit<?> a;
-	private baseUnit<?> b;
+	private BaseUnit<?> a;
+	private BaseUnit<?> b;
 	
 	private UnitOperators o;
 	
@@ -21,7 +21,7 @@ public abstract class Unit<F extends Unit>  { //implements Plus<F>
 	 * For example: If we take 5 Meters and 3 Seconds the speed would be 5/3 m/s
 	 * 
 	 */
-	protected Unit(baseUnit<?> a, baseUnit<?> b,UnitOperators o) {
+	protected Unit(BaseUnit<?> a, BaseUnit<?> b,UnitOperators o) {
 		this.a = a;
 		this.b = b;
 		this.o = o;
@@ -112,19 +112,19 @@ public abstract class Unit<F extends Unit>  { //implements Plus<F>
 
 	
 	
-	protected <F extends Unit> baseUnit<?> getA() {
+	protected <F extends Unit> BaseUnit<?> getA() {
 		return a;
 	}
 
-	protected <F extends Unit> baseUnit<?> getB() {
+	protected <F extends Unit> BaseUnit<?> getB() {
 		return b;
 	}
 
-	protected void setA(baseUnit<?> a) {
+	protected void setA(BaseUnit<?> a) {
 		this.a = a;
 	}
 
-	protected void setB(baseUnit<?> b) {
+	protected void setB(BaseUnit<?> b) {
 		this.b = b;
 	}
 	

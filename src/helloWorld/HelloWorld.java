@@ -1,11 +1,11 @@
 package helloWorld;
 
-import com.WUSE.meter.A_geschwindigkeit;
-import com.WUSE.meter.Centimeter;
-import com.WUSE.meter.Decimeter;
-import com.WUSE.meter.meter;
-import com.WUSE.zeit.Hour;
-import com.WUSE.zeit.second;
+import com.WUSE.AbstractUnits.A_speed;
+import com.WUSE.Distance.Centimeter;
+import com.WUSE.Distance.Decimeter;
+import com.WUSE.Distance.Meter;
+import com.WUSE.Time.Hour;
+import com.WUSE.Time.Second;
 
 public class HelloWorld {
 
@@ -18,11 +18,11 @@ public class HelloWorld {
 	public static void main(String[] args) {
 		
 		
-		meter m = new meter(1f);
-		meter m2 = new meter(0.5f);
+		Meter m = new Meter(1f);
+		Meter m2 = new Meter(0.5f);
 		System.out.println("Testausgabe " + m + " + " + m2);
 		
-		meter m3 = m.plus(m2);
+		Meter m3 = m.plus(m2);
 		System.out.println(m3);
 		
 		
@@ -38,8 +38,8 @@ public class HelloWorld {
 		System.out.println(dm);
 		
 		
-		second s = new second(1f);
-		second s2 = new second(0.5f);
+		Second s = new Second(1f);
+		Second s2 = new Second(0.5f);
 		System.out.println("Testausgabe " + s + " + " + s2);
 		s = s.plus(s2);
 		
@@ -48,13 +48,13 @@ public class HelloWorld {
 		System.out.println();
 		System.out.println();
 		
-		A_geschwindigkeit g;
+		A_speed g;
 		System.out.println(dm + "/" + s + "=");
 		g = dm.dividedBy(s);
 		System.out.println(g);
 		
 		System.out.println(c + "/" + s2+ "=");
-		A_geschwindigkeit g2;
+		A_speed g2;
 		g2 = c.dividedBy(s2);
 		System.out.println(g2);
 		
