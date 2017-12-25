@@ -72,15 +72,15 @@ public abstract class BaseUnit <F extends BaseUnit> implements Plus<F>  {
 	}
 
 	
-	protected float getValue() {
+	public float getValue() {
 		return value;
 	}
 	
-	protected void setValue(float value) {
+	public void setValue(float value) {
 		this.value = value;
 	}
 	
-	protected float getBaseRate() {
+	public float getBaseRate() {
 		return baseRate;
 	}
 	
