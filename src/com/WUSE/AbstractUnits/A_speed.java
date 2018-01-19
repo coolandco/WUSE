@@ -9,12 +9,22 @@ import com.WUSE.Distance.A_distance;
 public class A_speed extends Unit<A_speed>{
 
 	
-
+/**
+ * Provides the functionality to create a speed out of a distance and a Time
+ * 
+ * @param a An Object derivated from Distance
+ * @param b An Object derivated from Time
+ */
 	public A_speed(BaseUnit<A_distance> a, BaseUnit<A_Time> b) {
 		
 		super(a, b, UnitOperators.DIVIDE);
 	}
 	
+	
+	
+	/**
+	 * creates an empty object of the type speed
+	 */
 	public A_speed() {
 		
 		super(UnitOperators.DIVIDE);

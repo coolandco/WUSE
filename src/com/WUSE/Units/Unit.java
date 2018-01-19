@@ -1,6 +1,15 @@
 package com.WUSE.Units;
 
 
+/**
+ * 
+ * 
+ * @author Leo
+ *
+ *This Class does the Management of two baseUnits
+ *
+ * @param <F>
+ */
 @SuppressWarnings("rawtypes")
 public abstract class Unit<F extends Unit>  { //implements Plus<F>
 	
@@ -19,6 +28,11 @@ public abstract class Unit<F extends Unit>  { //implements Plus<F>
 	 * time = time / time
 	 * 
 	 * For example: If we take 5 Meters and 3 Seconds the speed would be 5/3 m/s
+	 * 
+	 * @param a Base Unit a
+	 * @param b Base Unit b
+	 * @param o Type of Operator
+	 * 
 	 * 
 	 */
 	protected Unit(BaseUnit<?> a, BaseUnit<?> b,UnitOperators o) {
@@ -44,8 +58,16 @@ public abstract class Unit<F extends Unit>  { //implements Plus<F>
 		this.o = o;
 	}
 
-
-	//@SuppressWarnings("unchecked")
+	
+	/**
+	 * Adds two Units together, depending on the relation of the both units.
+	 * A relation can be Divide or Multiply.
+	 * Depending on that the correct Addition prozedure will be choosen. 
+	 * 
+	 * @param toAdd has to be the same unit kind like <this>
+	 * @return Returns a new instance of <F>
+	 */
+	@SuppressWarnings("unchecked")
 	public F plus(F toAdd) {
 		
 		
@@ -102,6 +124,9 @@ public abstract class Unit<F extends Unit>  { //implements Plus<F>
 		return null;
 	}
 	
+	/**
+	 * returns the value of unit a and  class name of unit a / class name of unit b
+	 */
 	@Override
 	public String toString() {
 		return String.valueOf(a.getValue() + " " +

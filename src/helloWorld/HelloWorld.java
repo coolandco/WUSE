@@ -5,6 +5,7 @@ import com.WUSE.Distance.Centimeter;
 import com.WUSE.Distance.Decimeter;
 import com.WUSE.Distance.Meter;
 import com.WUSE.Time.Hour;
+import com.WUSE.Time.Minute;
 import com.WUSE.Time.Second;
 
 public class HelloWorld {
@@ -63,6 +64,18 @@ public class HelloWorld {
 		
 		
 		System.out.println(g2);
+		
+		
+		//generates time with some value
+		Hour h = new Hour(1);
+		
+		Minute mi = new Minute(3);
+
+		Second se = new Second(3);
+		
+		
+		System.out.println(se.plus(mi));
+			
 		
 		
 

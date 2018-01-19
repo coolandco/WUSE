@@ -2,10 +2,11 @@ package com.WUSE.Units;
 
 
 
+import com.WUSE.Interfaces.Minus;
 import com.WUSE.Interfaces.Plus;
 
 /**
- * This class does the work
+ * This class does baseUnit management
  * 
  * We have to \@SuppressWarnings("rawtypes") because we need to make sure for F that we have access
  *  to the properties of baseUnit
@@ -18,22 +19,31 @@ import com.WUSE.Interfaces.Plus;
  */
 
 /*TODO: there is still a run time problem with the implementation of the base Unit. It is possible
- * to have a meter = centimeter.plus(meter) but java can't cast centimeter in meter
+ * to have a meter = centimeter.plus(meter) where java can't cast centimeter in meter
  */
 
 @SuppressWarnings("rawtypes") 
-public abstract class BaseUnit <F extends BaseUnit> implements Plus<F>  {
+public abstract class BaseUnit <F extends BaseUnit> implements Plus<F>,Minus<F>  {
 	
 	private float baseRate;
 	private float value;
 	
-	
+	/**
+	 * A BaseUnit contains always a baseRate and a value.
+	 * 
+	 * 
+	 * @param baseRate
+	 * @param value
+	 */
 	protected BaseUnit(float baseRate, float value) {
 				this.baseRate = baseRate;
 				this.value = value;
 	}
 	
 	
+
+	
+	@SuppressWarnings("unchecked")
 	@Override
 	public <T extends F> T plus(F toAdd) {
 		
@@ -47,18 +57,9 @@ public abstract class BaseUnit <F extends BaseUnit> implements Plus<F>  {
 				//br = toAdd.baserate
 				//bv = toAdd.value
 				//(ar / br) * bv + av
-				result.setValue(
-						(
-							(
-								this.getBaseRate()
-								/
-								toAdd.getBaseRate()
-							)
-							*
-							toAdd.getValue()
-						)
-						+
-						this.getValue()
+				result.setValue( 	getValueConvertedToSame(this.getBaseRate(), toAdd.getBaseRate(), toAdd.getValue())
+									+
+									this.getValue()
 				);	
 				
 				return result;
@@ -70,19 +71,82 @@ public abstract class BaseUnit <F extends BaseUnit> implements Plus<F>  {
 		return null;		
 		
 	}
-
 	
+	@SuppressWarnings("unchecked")
+	public <T extends F> T minus(F toSubtract) {
+		
+		try {
+			//generates a new class through reflection and casts it to the desired class
+			T result = (T) this.getClass().newInstance();
+			
+			//calculation
+			//ar = this.baserate
+			//av = this.value
+			//br = toAdd.baserate
+			//bv = toAdd.value
+			//(ar / br) * bv - av
+			result.setValue( 	getValueConvertedToSame(this.getBaseRate(), toSubtract.getBaseRate(), toSubtract.getValue())
+								-
+								this.getValue()
+			);	
+			
+			
+			return result;
+			
+		} catch (InstantiationException | IllegalAccessException e) {
+			e.printStackTrace();
+		}
+		
+		
+		return null;		
+	}
+	
+	/**
+	 * converts a value to the base rate of another base unit
+	 * 
+	 * @param baseRateOrginal the base rate, where the toConvert-Value has to be convertet to
+	 * @param baseRateToConvert 
+	 * @param ValueToConvert
+	 * @return a float of the convertet value
+	 */
+	private float getValueConvertedToSame(float baseRateOrginal, float baseRateToConvert, float ValueToConvert) {
+		
+		return 	(
+					baseRateOrginal
+					/
+					baseRateToConvert
+				)
+				*
+				ValueToConvert;
+		
+	}
+	
+
+	/**
+	 * 
+	 * @return returns the Value
+	 */
 	public float getValue() {
 		return value;
 	}
 	
+	/**
+	 * 
+	 * @param value Sets the value
+	 */
 	public void setValue(float value) {
 		this.value = value;
 	}
 	
+	
+	/**
+	 * 
+	 * @return returns the baseRate
+	 */
 	public float getBaseRate() {
 		return baseRate;
 	}
+	
 	
 	@Override
 	public String toString() {
