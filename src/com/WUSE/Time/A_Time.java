@@ -2,7 +2,7 @@ package com.WUSE.Time;
 
 import com.WUSE.Units.BaseUnit;
 
-public abstract class A_Time extends BaseUnit<A_Time> {
+public abstract class A_Time<T extends A_Time> extends BaseUnit<T,A_Time> {
 	
 	/**
 	 * Provides the functionality to create a Time

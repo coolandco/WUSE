@@ -1,6 +1,6 @@
 package com.WUSE.Distance;
 
-public class Kilometer extends A_distance {
+public class Kilometer extends A_distance<Kilometer> {
 
 	/**
 	 * creates a Kilometer with a specific length

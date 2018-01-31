@@ -14,12 +14,16 @@ public class A_speed extends Unit<A_speed>{
  * 
  * @param a An Object derivated from Distance
  * @param b An Object derivated from Time
+ * @throws Exception 
  */
-	public A_speed(BaseUnit<A_distance> a, BaseUnit<A_Time> b) {
+//	public A_speed(BaseUnit<A_distance<?>,?> a, BaseUnit<A_Time<?>,?> b) {
+//		
+//		super(a, b, UnitOperators.DIVIDE);
+//	}
+	public A_speed(A_distance<?> a_distance, A_Time<?> time) throws Exception {
 		
-		super(a, b, UnitOperators.DIVIDE);
+		super(a_distance, time, UnitOperators.DIVIDE);
 	}
-	
 	
 	
 	/**
@@ -29,5 +33,9 @@ public class A_speed extends Unit<A_speed>{
 		
 		super(UnitOperators.DIVIDE);
 	}
+
+
+
+
 
 }

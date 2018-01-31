@@ -1,6 +1,6 @@
 package com.WUSE.Time;
 
-public class Second extends A_Time {
+public class Second extends A_Time<Second> {
 
 	
 	/**

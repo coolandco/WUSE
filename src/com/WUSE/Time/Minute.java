@@ -1,6 +1,6 @@
 package com.WUSE.Time;
 
-public class Minute extends A_Time {
+public class Minute extends A_Time<Minute> {
 	
 	/**
 	 * creates a Minute with a specific time

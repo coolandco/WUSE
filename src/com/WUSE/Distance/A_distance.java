@@ -5,7 +5,9 @@ import com.WUSE.AbstractUnits.A_speed;
 import com.WUSE.Time.A_Time;
 import com.WUSE.Units.BaseUnit;
 
-public abstract class A_distance extends BaseUnit<A_distance>{
+
+@SuppressWarnings("rawtypes")
+public abstract class A_distance<T extends A_distance> extends BaseUnit<T,A_distance>{
 	
 	
 	/**
@@ -30,7 +32,12 @@ public abstract class A_distance extends BaseUnit<A_distance>{
 		
 		//returns a new Speed
 		
-		return new A_speed(this, time);
+		try {
+			return new A_speed(this, time);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			return null;
+		}
 	}	
 
 }

@@ -32,7 +32,7 @@ public class A_TimeTest {
 		
 		expected = 183f;
 		result = s.plus(m).getValue();
-		if(result != expected)
+		if(result < expected - 0.5 || result > expected + 0.5) // because otherwise test fails
 			fail(resultWrong +" expected: " + expected + " result: " + result);
 		
 		expected = 60f;

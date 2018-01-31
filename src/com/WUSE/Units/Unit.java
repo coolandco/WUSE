@@ -8,13 +8,13 @@ package com.WUSE.Units;
  *
  *This Class does the Management of two baseUnits
  *
- * @param <F>
+ * @param <F> Every child <F> of Unit can be connected to any other child of Unit with an operator
  */
 @SuppressWarnings("rawtypes")
-public abstract class Unit<F extends Unit>  { //implements Plus<F>
+public abstract class Unit<F extends Unit>  { 
 	
-	private BaseUnit<?> a;
-	private BaseUnit<?> b;
+	private BaseUnit<?,?> a;
+	private BaseUnit<?,?> b;
 	
 	private UnitOperators o;
 	
@@ -32,10 +32,11 @@ public abstract class Unit<F extends Unit>  { //implements Plus<F>
 	 * @param a Base Unit a
 	 * @param b Base Unit b
 	 * @param o Type of Operator
+	 * @throws Exception 
 	 * 
 	 * 
 	 */
-	protected Unit(BaseUnit<?> a, BaseUnit<?> b,UnitOperators o) {
+	protected Unit(BaseUnit<?,?> a, BaseUnit<?,?> b,UnitOperators o) throws Exception {
 		this.a = a;
 		this.b = b;
 		this.o = o;
@@ -45,6 +46,8 @@ public abstract class Unit<F extends Unit>  { //implements Plus<F>
 			a.setValue(a.getValue() / b.getValue());
 			b.setValue(1f);//always 1			
 			
+		}else if(o == UnitOperators.MULTIPLY) {
+			throw new Exception("not yet Implemented");
 		}
 	}
 
@@ -66,9 +69,10 @@ public abstract class Unit<F extends Unit>  { //implements Plus<F>
 	 * 
 	 * @param toAdd has to be the same unit kind like <this>
 	 * @return Returns a new instance of <F>
+	 * @throws Exception 
 	 */
 	@SuppressWarnings("unchecked")
-	public F plus(F toAdd) {
+	public F plus(F toAdd) throws Exception {
 		
 		
 		try {
@@ -111,6 +115,8 @@ public abstract class Unit<F extends Unit>  { //implements Plus<F>
 						+
 						this.getA().getValue()
 						);
+			}else if(o == UnitOperators.MULTIPLY) {
+				throw new Exception("not yet Implemented");
 			}
 			
 			//now we have a finished Unit and can give it back
@@ -137,19 +143,19 @@ public abstract class Unit<F extends Unit>  { //implements Plus<F>
 
 	
 	
-	protected <F extends Unit> BaseUnit<?> getA() {
+	protected BaseUnit<?,?> getA() {
 		return a;
 	}
 
-	protected <F extends Unit> BaseUnit<?> getB() {
+	protected BaseUnit<?,?> getB() {
 		return b;
 	}
 
-	protected void setA(BaseUnit<?> a) {
+	protected void setA(BaseUnit<?,?> a) {
 		this.a = a;
 	}
 
-	protected void setB(BaseUnit<?> b) {
+	protected void setB(BaseUnit<?,?> b) {
 		this.b = b;
 	}
 	

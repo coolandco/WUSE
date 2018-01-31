@@ -1,6 +1,6 @@
 package com.WUSE.Distance;
 
-public class Decimeter extends A_distance {
+public class Decimeter extends A_distance<Decimeter> {
 
 	/**
 	 * creates a Decimeter with a specific length

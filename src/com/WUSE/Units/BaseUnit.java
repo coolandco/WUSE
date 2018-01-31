@@ -8,22 +8,21 @@ import com.WUSE.Interfaces.Plus;
 /**
  * This class does baseUnit management
  * 
- * We have to \@SuppressWarnings("rawtypes") because we need to make sure for F that we have access
- *  to the properties of baseUnit
- * 
  * @author Leo
  *
- * @param <F>
- * Every child of F can be added to any other child of F
+ * @param <F> Every child of F can be operated with any other child of F
  * 
  */
 
 /*TODO: there is still a run time problem with the implementation of the base Unit. It is possible
  * to have a meter = centimeter.plus(meter) where java can't cast centimeter in meter
+ * 
+ * We have to \@SuppressWarnings("rawtypes") because we need to make sure for F that we have access
+ * to the properties of baseUnit
  */
 
-@SuppressWarnings("rawtypes") 
-public abstract class BaseUnit <F extends BaseUnit> implements Plus<F>,Minus<F>  {
+//@SuppressWarnings("rawtypes") 
+public abstract class BaseUnit <T extends F, F extends BaseUnit>  implements Plus<T,F>,Minus<T,F>{
 	
 	private float baseRate;
 	private float value;
@@ -44,8 +43,8 @@ public abstract class BaseUnit <F extends BaseUnit> implements Plus<F>,Minus<F> 
 
 	
 	@SuppressWarnings("unchecked")
-	@Override
-	public <T extends F> T plus(F toAdd) {
+	//@Override
+	public T plus(F toAdd) {
 		
 			try {
 				//generates a new class through reflection and casts it to the desired class
@@ -73,7 +72,7 @@ public abstract class BaseUnit <F extends BaseUnit> implements Plus<F>,Minus<F> 
 	}
 	
 	@SuppressWarnings("unchecked")
-	public <T extends F> T minus(F toSubtract) {
+	public T minus(F toSubtract) {
 		
 		try {
 			//generates a new class through reflection and casts it to the desired class
@@ -160,7 +159,7 @@ public abstract class BaseUnit <F extends BaseUnit> implements Plus<F>,Minus<F> 
 	 * @return <T> or null if there was an exeption
 	 */
 	@SuppressWarnings("unchecked")
-	public <T extends F> T getCopy() {
+	public T getCopy() {
 		
 		try {
 			

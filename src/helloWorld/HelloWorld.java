@@ -15,8 +15,9 @@ public class HelloWorld {
 	 * Main function of helloWorld Project
 	 * 
 	 * @param args
+	 * @throws Exception 
 	 */
-	public static void main(String[] args) {
+	public static void main(String[] args) throws Exception {
 		
 		
 		Meter m = new Meter(1f);
@@ -29,7 +30,12 @@ public class HelloWorld {
 		
 		Centimeter c = new Centimeter(1f);
 		System.out.println("Testausgabe " + c + " + " + m);
-		c = c.plus(m);
+		
+		c = c.plus(c);		
+		
+		
+		//c.dividedBy(time);
+		
 		System.out.println(c);
 		
 		
@@ -70,6 +76,8 @@ public class HelloWorld {
 		Hour h = new Hour(1);
 		
 		Minute mi = new Minute(3);
+		
+		h = h.getCopy();
 
 		Second se = new Second(3);
 		

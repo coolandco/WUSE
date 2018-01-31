@@ -1,5 +1,7 @@
 package com.WUSE.Interfaces;
 
+import com.WUSE.Units.BaseUnit;
+
 /**
  *This interface has the right pattern for a subtraction operation for a Base Value
  * 
@@ -8,7 +10,7 @@ package com.WUSE.Interfaces;
  * @param <F>
  * <F> Parameter specifies the class where all children are subtractable
  */
-public interface Minus <F> extends Operator {
+public interface Minus <T extends F, F extends BaseUnit> extends Operator {
 	
 	
 	/**
@@ -19,10 +21,10 @@ public interface Minus <F> extends Operator {
 	 * T result = (T) this.getClass().newInstance() to get a new child object of the same class
 	 * 
 	 * @param toSubtract
-	 * toSubtract is a Child of <F> cast to <F> (another <T> or something from a parallel class)
+	 * toSubtract is a Child of <F> cast to <F> (another kind of <T> or something from a parallel class)
 	 * @return
 	 * a new <T> with <F> subtracted from the old <T>
 	 */
-	public <T extends F> T minus(F toSubtract);
+	public T minus(F toSubtract);
 
 }

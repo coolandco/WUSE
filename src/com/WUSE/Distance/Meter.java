@@ -1,6 +1,6 @@
 package com.WUSE.Distance;
 
-public class Meter extends A_distance {	
+public class Meter extends A_distance<Meter> {	
 	
 	
 	/**

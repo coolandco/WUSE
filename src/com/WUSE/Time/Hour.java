@@ -1,6 +1,6 @@
 package com.WUSE.Time;
 
-public class Hour extends A_Time {
+public class Hour extends A_Time<Hour> {
 
 	/**
 	 * creates an Hour with a specific time
