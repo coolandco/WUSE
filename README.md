@@ -1,6 +1,6 @@
 ## Projekt für den Kurs "Werkzeugunterstützte Software Entwicklung"
 
-English version available below.
+English version available [below](https://github.com/coolandco/WUSE#project-for-the-course-tool-assisted-software-development).
 
 ### Rahmen des Projekts
 ------------------
