@@ -39,7 +39,7 @@ Die ["HelloWorld"](./src/helloWorld/HelloWorld.java) Klasse zeigt Beispiele zur 
 
 ### Fazit
 -------
-In diesem Projekt konnte ich viel über extreme Abhängigkeiten in Java inclusive der Benutzung von unbounded Wildcards (Klasse ["Units"](./src/com/WUSE/Units/Unit.java)) erfahren.
+In diesem Projekt konnte ich viel über extreme Abhängigkeiten in Java inclusive der Benutzung von unbounded Wildcards (in der Klasse ["Units"](./src/com/WUSE/Units/Unit.java)) erfahren.
 
 
 
@@ -47,7 +47,7 @@ In diesem Projekt konnte ich viel über extreme Abhängigkeiten in Java inclusiv
 
 ### Scope des Projekts
 ------------------
-This project was for showing Tool Assisted Software Development on a hands on project. We studends were allowed to use any project and tools for this course. I chose following tools:
+This project was for showing Tool Assisted Software Development in a hands on project. We studends were allowed to use any project and tools for this course. I chose following tools:
  - Eclipse
  - Git
  - Maven
@@ -55,9 +55,9 @@ This project was for showing Tool Assisted Software Development on a hands on pr
  - Jenkins
  - Doxygen
 
-### Contend
+### Content
 -----------------
-I chose to use a class hirarchie to create base units as classes, like distance: meter, centimeter; time: hour, second. Those base units provide funktionality to interact with base units of the same kind. Therefore a "meter" should not be, for example addable to an hour. I managed to do this via a three staged type hirarchie.
+I chose to use a class hirarchie to create base units as classes, like distance: meter, centimeter; time: hour, second. Those base units provide functionality to interact with base units of the same kind. Therefore a "meter" should not be, for example addable to an hour. I managed to do this via a three staged type hirarchie.
 
 Declaration of a specific unit:
 ```Java
@@ -82,7 +82,7 @@ The ["HelloWorld"](./src/helloWorld/HelloWorld.java) class shows usage examples.
 
 ### Fazit
 -------
-In this project I clould learn a lot about extreme Dependencies including the usage of unbounded wildcards (class ["Units"](./src/com/WUSE/Units/Unit.java)).
+In this project I could learn a lot about extreme Dependencies including the usage of unbounded wildcards (in the class ["Units"](./src/com/WUSE/Units/Unit.java)).
 
 
 
