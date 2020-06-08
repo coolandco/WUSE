@@ -1,6 +1,6 @@
 package com.WUSE.Distance;
 
-public class Centimeter extends A_distance<Centimeter> {
+public class Centimeter extends Distance_Abstract<Centimeter> {
 
 	/**
 	 * creates a centimeter with a specific length

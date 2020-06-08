@@ -1,12 +1,11 @@
-package com.WUSE.AbstractUnits;
+package com.WUSE.DerivedUnits;
 
 import com.WUSE.Units.Unit;
 import com.WUSE.Units.UnitOperators;
-import com.WUSE.Time.A_Time;
-import com.WUSE.Units.BaseUnit;
-import com.WUSE.Distance.A_distance;
+import com.WUSE.Time.Zeit_Abstract;
+import com.WUSE.Distance.Distance_Abstract;
 
-public class A_speed extends Unit<A_speed>{
+public class Speed extends Unit<Speed>{
 
 	
 /**
@@ -20,16 +19,16 @@ public class A_speed extends Unit<A_speed>{
 //		
 //		super(a, b, UnitOperators.DIVIDE);
 //	}
-	public A_speed(A_distance<?> a_distance, A_Time<?> time) throws Exception {
+	public Speed(Distance_Abstract<?> distanceAbstract, Zeit_Abstract<?> time) throws Exception {
 		
-		super(a_distance, time, UnitOperators.DIVIDE);
+		super(distanceAbstract, time, UnitOperators.DIVIDE);
 	}
 	
 	
 	/**
 	 * creates an empty object of the type speed
 	 */
-	public A_speed() {
+	public Speed() {
 		
 		super(UnitOperators.DIVIDE);
 	}

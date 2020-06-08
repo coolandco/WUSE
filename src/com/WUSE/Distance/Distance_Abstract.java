@@ -1,13 +1,13 @@
 package com.WUSE.Distance;
 
 
-import com.WUSE.AbstractUnits.A_speed;
-import com.WUSE.Time.A_Time;
+import com.WUSE.DerivedUnits.Speed;
+import com.WUSE.Time.Zeit_Abstract;
 import com.WUSE.Units.BaseUnit;
 
 
-@SuppressWarnings("rawtypes")
-public abstract class A_distance<T extends A_distance> extends BaseUnit<T,A_distance>{
+
+public abstract class Distance_Abstract<T extends Distance_Abstract> extends BaseUnit<T, Distance_Abstract>{
 	
 	
 	/**
@@ -16,7 +16,7 @@ public abstract class A_distance<T extends A_distance> extends BaseUnit<T,A_dist
 	 * @param baseRate base
 	 * @param value
 	 */
-	protected A_distance(float baseRate,float value) {
+	protected Distance_Abstract(float baseRate, float value) {
 				super(baseRate,value);
 	}
 	
@@ -28,12 +28,12 @@ public abstract class A_distance<T extends A_distance> extends BaseUnit<T,A_dist
 	 * @param time a "time" object
 	 * @return a speed object
 	 */
-	public A_speed dividedBy(A_Time time) {
+	public Speed dividedBy(Zeit_Abstract time) {
 		
 		//returns a new Speed
 		
 		try {
-			return new A_speed(this, time);
+			return new Speed(this, time);
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			return null;

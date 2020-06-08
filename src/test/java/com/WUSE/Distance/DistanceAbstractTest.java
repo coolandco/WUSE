@@ -4,7 +4,7 @@ import static org.junit.Assert.*;
 
 import org.junit.Test;
 
-public class A_distanceTest {
+public class DistanceAbstractTest {
 
 	final String resultWrong = "Result Wrong";
 

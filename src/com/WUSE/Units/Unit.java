@@ -10,13 +10,12 @@ package com.WUSE.Units;
  *
  * @param <F> Every child <F> of Unit can be connected to any other child of Unit with an operator
  */
-@SuppressWarnings("rawtypes")
 public abstract class Unit<F extends Unit>  { 
 	
 	private BaseUnit<?,?> a;
 	private BaseUnit<?,?> b;
 	
-	private UnitOperators o;
+	private final UnitOperators o;
 	
 	
 	/**

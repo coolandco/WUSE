@@ -6,7 +6,7 @@ import org.junit.Test;
 
 import com.sun.org.apache.xpath.internal.operations.Minus;
 
-public class A_TimeTest {
+public class ZeitAbstractTest {
 
 	final String resultWrong = "Result Wrong";
 	

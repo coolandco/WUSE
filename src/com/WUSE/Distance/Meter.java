@@ -1,10 +1,10 @@
 package com.WUSE.Distance;
 
-public class Meter extends A_distance<Meter> {	
+public class Meter extends Distance_Abstract<Meter> {
 	
 	
 	/**
-	 * creates a Kilometer with a specific length
+	 * creates a Meter with a specific length
 	 * @param value 
 	 */
 	public Meter(float value){

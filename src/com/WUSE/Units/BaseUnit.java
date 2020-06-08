@@ -14,14 +14,12 @@ import com.WUSE.Interfaces.Plus;
  * 
  */
 
-/*TODO: there is still a run time problem with the implementation of the base Unit. It is possible
- * to have a meter = centimeter.plus(meter) where java can't cast centimeter in meter
- * 
+/* *
  * We have to \@SuppressWarnings("rawtypes") because we need to make sure for F that we have access
  * to the properties of baseUnit
  */
 
-//@SuppressWarnings("rawtypes") 
+@SuppressWarnings("rawtypes")
 public abstract class BaseUnit <T extends F, F extends BaseUnit>  implements Plus<T,F>,Minus<T,F>{
 	
 	private float baseRate;
