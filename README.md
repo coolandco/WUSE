@@ -18,11 +18,11 @@ Ich habe mir überlegt, eine Klassenhierarchie zu entwickeln, mit der Basiseinhe
 
 Deklaration einer Einheit:
 ```Java
-public class Meter extends A_distance<Meter> {…}
+public class Meter extends Distance_Abstract<Meter> {…}
 ```
 Deklaration einer einheitenspezifischen Klasse:
 ```Java
-public abstract class A_distance<T extends A_distance> extends BaseUnit<T,A_distance> {…}
+public abstract class Distance_Abstract<T extends Distance_Abstract> extends BaseUnit<T,Distance_Abstract> {…}
 ```
 Deklaration der Basiseinheitenklasse:
 ```Java
@@ -31,7 +31,7 @@ public abstract class BaseUnit<T extends F, F extends BaseUnit> {
 }
 ```
 
-Des weiteren gibt es Einheiten, die durch die Kombination der Basiseinheiten entstehen, wie z.B. km/h. Diese wurden durch die ["Units"](./src/com/WUSE/Units/Unit.java) Klasse implementiert. 
+Des Weiteren gibt es Einheiten, die durch die Kombination der Basiseinheiten entstehen, wie z.B. km/h. Diese wurden durch die ["Units"](./src/com/WUSE/Units/Unit.java) Klasse implementiert. 
 
 ### Benutzung
 -------
@@ -39,7 +39,7 @@ Die ["HelloWorld"](./src/helloWorld/HelloWorld.java) Klasse zeigt Beispiele zur 
 
 ### Fazit
 -------
-In diesem Projekt konnte ich viel über extreme Abhängigkeiten in Java inclusive der Benutzung von unbounded Wildcards (in der Klasse ["Units"](./src/com/WUSE/Units/Unit.java)) erfahren.
+In diesem Projekt konnte ich viel über generic Abhängigkeiten in Java inclusive der Benutzung von unbounded Wildcards (in der Klasse ["Units"](./src/com/WUSE/Units/Unit.java)) erfahren.
 
 
 
@@ -61,11 +61,11 @@ I chose to use a class hirarchie to create base units as classes, like distance:
 
 Declaration of a specific unit:
 ```Java
-public class Meter extends A_distance<Meter> {…}
+public class Meter extends Distance_Abstract<Meter> {…}
 ```
 Declaration of a specific unit class:
 ```Java
-public abstract class A_distance<T extends A_distance> extends BaseUnit<T,A_distance> {…}
+public abstract class Distance_Abstract<T extends Distance_Abstract> extends BaseUnit<T,Distance_Abstract> {…}
 ```
 Declaration of the base unit:
 ```Java
@@ -82,7 +82,7 @@ The ["HelloWorld"](./src/helloWorld/HelloWorld.java) class shows usage examples.
 
 ### Fazit
 -------
-In this project I could learn a lot about extreme Dependencies including the usage of unbounded wildcards (in the class ["Units"](./src/com/WUSE/Units/Unit.java)).
+In this project I could learn a lot about dependency generics  including the usage of unbounded wildcards (in the class ["Units"](./src/com/WUSE/Units/Unit.java)).
 
 
 
